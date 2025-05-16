@@ -109,6 +109,62 @@ body {
   object-fit: cover;
 }
 
+.portfolio-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 500%; /* 5 изображений */
+}
+
+.slider img {
+  width: 100%;
+  flex: 0 0 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 10px;
+}
+
+.slider-controls button {
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .portfolio-card {
+    height: 250px;
+  }
+}
+
 .why-us {
   padding: 60px 0;
 }
