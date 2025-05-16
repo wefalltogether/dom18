@@ -121,6 +121,28 @@
       </div>
     </div>
   </footer>
+<script>
+document.querySelectorAll('.portfolio-card').forEach((card, index) => {
+  const slider = card.querySelector('.slider');
+  const images = slider.querySelectorAll('img');
+  let current = 0;
 
+  const showSlide = () => {
+    slider.style.transform = `translateX(-${current * 100}%)`;
+  };
+
+  card.querySelector('.prev').addEventListener('click', () => {
+    current = (current - 1 + images.length) % images.length;
+    showSlide();
+  });
+
+  card.querySelector('.next').addEventListener('click', () => {
+    current = (current + 1) % images.length;
+    showSlide();
+  });
+
+  showSlide();
+});
+</script>
 </body>
 </html>
