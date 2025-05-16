@@ -224,7 +224,7 @@ form input {
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+@media (max-width: auto) {
   .hero-content h1 {
     font-size: 2rem;
   }
