@@ -99,33 +99,36 @@ body {
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
 .portfolio-card {
   position: relative;
-  overflow: hidden;
-  background: #fff;
-  border-radius: 8px;
   width: 100%;
-  aspect-ratio: 4 / 3; /* универсальная пропорция */
+  aspect-ratio: 4 / 3; /* Заставляем блок быть одинакового размера */
+  overflow: hidden;
+  border-radius: 10px;
+  background: #ddd;
+  display: flex;
+  flex-direction: column;
 }
 
 .slider {
   display: flex;
-  transition: transform 0.5s ease;
   width: 500%; /* 5 изображений */
   height: 100%;
+  transition: transform 0.5s ease;
 }
 
 .slider img {
+  flex: 0 0 100%;
   width: 100%;
   height: 100%;
-  flex: 0 0 100%;
-  object-fit: cover; /* ключевая строка: заполняет блок без искажений */
-  object-position: center;
+  object-fit: cover;        /* Подгоняем */
+  object-position: center; /* Центрируем */
   display: block;
+  border: none;
 }
 
 .slider-controls {
@@ -224,7 +227,7 @@ form input {
   text-decoration: underline;
 }
 
-@media (max-width: auto) {
+@media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2rem;
   }
