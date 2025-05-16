@@ -103,34 +103,29 @@ body {
   gap: 20px;
 }
 
-.portfolio-grid img {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
 .portfolio-card {
+  position: relative;
+  overflow: hidden;
   background: #fff;
   border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* универсальная пропорция */
 }
 
 .slider {
   display: flex;
   transition: transform 0.5s ease;
   width: 500%; /* 5 изображений */
+  height: 100%;
 }
 
 .slider img {
   width: 100%;
-  flex: 0 0 100%;
-  object-fit: cover;
   height: 100%;
+  flex: 0 0 100%;
+  object-fit: cover; /* ключевая строка: заполняет блок без искажений */
+  object-position: center;
+  display: block;
 }
 
 .slider-controls {
@@ -141,27 +136,23 @@ body {
   justify-content: space-between;
   transform: translateY(-50%);
   padding: 0 10px;
+  pointer-events: none;
 }
 
 .slider-controls button {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   border: none;
   color: white;
   font-size: 24px;
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 50%;
+  pointer-events: all;
 }
 
 @media (max-width: 768px) {
-  .portfolio-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
   .portfolio-card {
-    height: 250px;
+    aspect-ratio: 4 / 3;
   }
 }
 
