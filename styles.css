@@ -105,55 +105,56 @@ body {
 
 .portfolio-card {
   position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3; /* Заставляем блок быть одинакового размера */
   overflow: hidden;
+  aspect-ratio: 4 / 3; /* Универсальное окно для всех */
   border-radius: 10px;
-  background: #ddd;
-  display: flex;
-  flex-direction: column;
+  background-color: #eee;
 }
 
 .slider {
   display: flex;
-  width: 500%; /* 5 изображений */
   height: 100%;
   transition: transform 0.5s ease;
+  width: 500%; /* 5 изображений */
 }
 
 .slider img {
   flex: 0 0 100%;
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* Подгоняем */
-  object-position: center; /* Центрируем */
+  object-fit: cover;        /* Вписывание по размеру блока */
+  object-position: center; /* Центрируем изображение */
   display: block;
-  border: none;
 }
 
 .slider-controls {
   position: absolute;
   top: 50%;
-  width: 100%;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
-  transform: translateY(-50%);
   padding: 0 10px;
+  transform: translateY(-50%);
   pointer-events: none;
 }
 
 .slider-controls button {
   background: rgba(0, 0, 0, 0.5);
-  border: none;
   color: white;
-  font-size: 24px;
+  border: none;
+  font-size: 20px;
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 50%;
   pointer-events: all;
 }
 
-@media (max-width: auto) {
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
   .portfolio-card {
     aspect-ratio: 4 / 3;
   }
