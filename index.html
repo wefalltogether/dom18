@@ -44,41 +44,47 @@
       <div class="portfolio-grid">
         <div class="portfolio-card">
           <div class="slider">
-            <img src="example1-1.jpg" alt="Проект 1 фото 1" />
-            <img src="example1-2.jpg" alt="Проект 1 фото 2" />
-            <img src="example1-3.jpg" alt="Проект 1 фото 3" />
-            <img src="example1-4.jpg" alt="Проект 1 фото 4" />
-            <img src="example1-5.jpg" alt="Проект 1 фото 5" />
+            <div class="slider-track">
+              <div class="slider-slide"><img src="example1-1.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example1-2.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example1-3.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example1-4.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example1-5.jpg" alt=""></div>
+            </div>
           </div>
           <div class="slider-controls">
-            <button class="prev">‹</button>
-            <button class="next">›</button>
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
           </div>
         </div>
         <div class="portfolio-card">
           <div class="slider">
-            <img src="example2-1.jpg" alt="Проект 2 фото 1" />
-            <img src="example2-2.jpg" alt="Проект 2 фото 2" />
-            <img src="example2-3.jpg" alt="Проект 2 фото 3" />
-            <img src="example2-4.jpg" alt="Проект 2 фото 4" />
-            <img src="example2-5.jpg" alt="Проект 2 фото 5" />
+            <div class="slider-track">
+              <div class="slider-slide"><img src="example2-1.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example2-2.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example2-3.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example2-4.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example2-5.jpg" alt=""></div>
+            </div>
           </div>
           <div class="slider-controls">
-            <button class="prev">‹</button>
-            <button class="next">›</button>
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
           </div>
         </div>
         <div class="portfolio-card">
           <div class="slider">
-            <img src="example3-1.jpg" alt="Проект 3 фото 1" />
-            <img src="example3-2.jpg" alt="Проект 3 фото 2" />
-            <img src="example3-3.jpg" alt="Проект 3 фото 3" />
-            <img src="example3-4.jpg" alt="Проект 3 фото 4" />
-            <img src="example3-5.jpg" alt="Проект 3 фото 5" />
+            <div class="slider-track">
+              <div class="slider-slide"><img src="example3-1.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example3-2.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example3-3.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example3-4.jpg" alt=""></div>
+              <div class="slider-slide"><img src="example3-5.jpg" alt=""></div>
+            </div>
           </div>
           <div class="slider-controls">
-            <button class="prev">‹</button>
-            <button class="next">›</button>
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
           </div>
         </div>
       </div>
@@ -122,26 +128,26 @@
     </div>
   </footer>
 <script>
-document.querySelectorAll('.portfolio-card').forEach((card, index) => {
-  const slider = card.querySelector('.slider');
-  const images = slider.querySelectorAll('img');
-  let current = 0;
+document.querySelectorAll('.portfolio-card').forEach(card => {
+  const track = card.querySelector('.slider-track');
+  const slides = card.querySelectorAll('.slider-slide');
+  const prevBtn = card.querySelector('.prev');
+  const nextBtn = card.querySelector('.next');
+  let index = 0;
 
-  const showSlide = () => {
-    slider.style.transform = `translateX(-${current * 100}%)`;
-  };
+  function updateSlider() {
+    track.style.transform = translateX(-${index * 100}%);
+  }
 
-  card.querySelector('.prev').addEventListener('click', () => {
-    current = (current - 1 + images.length) % images.length;
-    showSlide();
+  prevBtn.addEventListener('click', () => {
+    if (index > 0) index--;
+    updateSlider();
   });
 
-  card.querySelector('.next').addEventListener('click', () => {
-    current = (current + 1) % images.length;
-    showSlide();
+  nextBtn.addEventListener('click', () => {
+    if (index < slides.length - 1) index++;
+    updateSlider();
   });
-
-  showSlide();
 });
 </script>
 </body>
