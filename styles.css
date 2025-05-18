@@ -105,27 +105,31 @@ body {
 
 .portfolio-card {
   position: relative;
-  overflow: hidden;
-  aspect-ratio: 4 / 3; /* Универсальное окно для всех */
+  width: 100%;
+  height: 250px;
+  background-color: #222; /* фон блока — помогает визуально */
   border-radius: 10px;
-  background-color: #eee;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slider {
   display: flex;
-  height: 100%;
   transition: transform 0.5s ease;
-  width: 500%; /* 5 изображений */
+  width: 500%;
+  height: 100%;
 }
 
 .slider img {
-  flex: 0 0 100%;
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
   object-fit: contain;        /* Вписывание по размеру блока */
   object-position: center; /* Центрируем изображение */
   display: block;
-  background-color: #f9f9f9;
+  background-color: #222;
 }
 
 .slider-controls {
